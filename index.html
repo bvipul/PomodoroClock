@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+		.bt{
+			cursor: pointer;
+			font-size : 40px;
+		}
+		.num{
+			font-size : 35px;
+			min-width : 40px;
+			width : 50px;
+		}
+		.clock{
+			height : 300px;
+			width : 300px;
+			border : 1px solid green;
+			border-radius: 50%;
+			position: relative;
+		    z-index: 20;
+		    overflow: hidden;
+		    padding : 5px;
+		}
+		.container {
+			margin: auto;
+			position: absolute;
+  			top: 0; left: 0; bottom: 0; right: 0;
+		}
+		.fill {
+			content: '';
+		    position: absolute;
+		    bottom: 0;
+		    right: 0;
+		    left: 0;
+		    z-index: -1;
+		}
+	</style>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-app="pomodoro" ng-controller="clockController">
+
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-md-3">
+				<div class="text-center setup-stage">
+					<button class="btn btn-default" ng-click="delNumber()">-</button>&nbsp;&nbsp;
+					<span class="num" ng-model="num">{{num}}</span>&nbsp;&nbsp;
+					<button class="btn btn-default" ng-click="addNumber()">+</button>
+				</div>	
+			</div>
+			<div class="col-md-4 col-md-offset-1 text-center">
+				<div class="play-ground">
+
+					<div class="clock text-center">
+						<span class="fill" style="background: green; padding: 3px" ng-style="{ 'height': fillHeight}"></span>
+					</div>
+					<p>{{originalTime}}</p>
+				</div>		
+			</div>
+			<div class="col-md-3">
+				<div class="text-center setup-stage">
+					<button class="btn btn-default" ng-click="delNumber()">-</button>&nbsp;&nbsp;
+					<span class="num" ng-model="num">{{num}}</span>&nbsp;&nbsp;
+					<button class="btn btn-default" ng-click="addNumber()">+</button>
+				</div>
+				<br/>
+				<br/>
+				<button ng-click="toggleTimer()" class="btn btn-default">Start!</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
